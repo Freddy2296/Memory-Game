@@ -62,7 +62,9 @@ var cardsArray = [
   var count = 0;
   var previousTarget = null;
   var delay = 1200;
-  
+  let moves = 0;
+  let counter = document.querySelector(".moves");
+ 
   var game = document.getElementById('game');
   var grid = document.createElement('section');
   grid.setAttribute('class', 'grid');
@@ -113,19 +115,32 @@ var cardsArray = [
     var clicked = event.target;
   
     if (clicked.nodeName === 'SECTION' || clicked === previousTarget || clicked.parentNode.classList.contains('selected') || clicked.parentNode.classList.contains('match')) {
+      
+      
       return;
+
+
+
+      
     }
-  
+
     if (count < 2) {
       count++;
+      //moveCounter();
       if (count === 1) {
         firstGuess = clicked.parentNode.dataset.name;
         console.log(firstGuess);
         clicked.parentNode.classList.add('selected');
+        moveCounter();
+
+        
       } else {
         secondGuess = clicked.parentNode.dataset.name;
         console.log(secondGuess);
         clicked.parentNode.classList.add('selected');
+       
+
+      
       }
   
       if (firstGuess && secondGuess) {
@@ -137,8 +152,12 @@ var cardsArray = [
       previousTarget = clicked;
     }
   });
+
   
-var second = 0, minute = 0; hour = 0;
+  
+var second = 0;
+var minute = 0; 
+var hour = 0;
 var timer = document.querySelector(".timer");
 var interval;
 function startTimer(){
@@ -158,6 +177,7 @@ function startTimer(){
 
 function moveCounter(){
   moves++;
+  console.log(moves);
   counter.innerHTML = moves;
   //start timer on first move
   if(moves == 1){
@@ -165,19 +185,18 @@ function moveCounter(){
       minute = 0; 
       hour = 0;
       startTimer();
+      
+
+
+
+
+
+      
   }
 }
 
-startGame(); {
-  
-  //reset timer
-  var timer = document.querySelector(".timer");
-  timer.innerHTML = "0 mins 0 secs";
-  clearInterval(interval);
-  }
 
-  StartGame(); {
-    // shuffle deck
+function startGame (){
     cards = shuffle(cards);
     // remove all existing classes from each card
    for (var i = 0; i < cards.length; i++){
@@ -185,8 +204,9 @@ startGame(); {
        [].forEach.call(cards, function(item) {
            deck.appendChild(item);
        });
-       cards[i].classList.remove("show", "open", "match",            "disabled");
-    }
+       cards[i].classList.remove("show", "open", "match", "disabled");
+      }
+          
     // reset moves
     moves = 0;
     counter.innerHTML = moves;

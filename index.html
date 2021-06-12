@@ -13,7 +13,7 @@
   <body>
     <div class="container">
       <header>
-          <h1> <p style="color: aqua;">Rick and Morty 
+          <h1  align="center"> <p style="color: aqua;">Rick and Morty 
             Memory Game</p>
           </h1>
       </header>
@@ -24,9 +24,10 @@
           <li><i class="fa fa-star"></i></li>
           <li><i class="fa fa-star"></i></li>
         </ul>
-
-        <span class="moves"> <p style="color: aqua;">0</span> Move(s) 
-        <div class="timer", style="color: aqua;"> </div> </section> </p>
+        <p  align="center" style="color: aqua;">
+        <span class="moves">0</span> Move(s) 
+        <div class="timer", style="color: aqua;">
+        </p>
         </div>
           <div class="restart" onclick=startGame()>
           <i class="fa fa-repeat"></i>
@@ -35,15 +36,15 @@
 
       <div id="popup1" class="overlay">
         <div class="popup">
-            <h2>Congratulations 🎉</h2>
+            <h2 style="color: aqua;">Congratulations 🎉</h2>
             <a class="close" href=# >×</a>
             <div class="content-1">
                 Congratulations you're a winner 🎉🎉
             </div>
             <div class="content-2">
-                <p>You made <span id=finalMove> </span> moves </p>
-                <p>in <span id=totalTime> </span> </p>
-                <p>Rating:  <span id=starRating></span></p>
+                <p style="color: aqua;">You made <span id=finalMove> </span> moves </p>
+                <p style="color: aqua;">in <span id=totalTime> </span> </p>
+                <p style="color: aqua;">Rating:  <span id=starRating></span></p>
             </div>
             <button id="play-again"onclick="playAgain()">
                 Play again 😄</a>
